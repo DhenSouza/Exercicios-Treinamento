@@ -1,6 +1,6 @@
 package br.com.stefanini.projetoprojetorel.dto.response;
 
-public class ClienteDTO {
+public class ClienteResponse {
 
 	private Integer idCliente;
 	private String nome;
@@ -9,11 +9,11 @@ public class ClienteDTO {
 	private String perfil;
 	private String status;
 
-	public ClienteDTO() {
+	public ClienteResponse() {
 
 	}
 
-	public ClienteDTO(Integer idCliente, String nome, String email, String senha, String perfil, String status) {
+	public ClienteResponse(Integer idCliente, String nome, String email, String senha, String perfil, String status) {
 		super();
 		this.idCliente = idCliente;
 		this.nome = nome;

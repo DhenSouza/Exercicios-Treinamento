@@ -1,9 +1,9 @@
 package br.com.stefanini.projetoprojetorel.persistence;
 
-import br.com.stefanini.projetoprojetorel.dto.response.ClienteDTO;
+import br.com.stefanini.projetoprojetorel.dto.response.ClienteResponse;
 
 public interface IClienteDAO {
 
-	public ClienteDTO findByIdCliente(int code) throws Exception;
+	public ClienteResponse findByIdCliente(int code) throws Exception;
 
 }

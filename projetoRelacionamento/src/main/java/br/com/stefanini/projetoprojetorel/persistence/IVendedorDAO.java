@@ -1,11 +1,9 @@
 package br.com.stefanini.projetoprojetorel.persistence;
 
-import java.util.List;
-
-import br.com.stefanini.projetoprojetorel.entity.Vendedor;
+import br.com.stefanini.projetoprojetorel.dto.response.VendedorResponse;
 
 public interface IVendedorDAO {
 	
-	public List<Vendedor> findAll() throws Exception;
+	public VendedorResponse findByIdVendedor(int code) throws Exception;
 
 }

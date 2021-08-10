@@ -1,19 +1,20 @@
 package br.com.stefanini.projetoprojetorel.dto.response;
 
-public class VendedorDTO {
+public class VendedorResponse {
 
-	private Long idVendedor;
+	private Integer idVendedor;
 	private String nome;
 	private String email;
 	private String senha;
 	private String perfil;
 	private Double comissao;
 
-	public VendedorDTO() {
+	public VendedorResponse() {
 
 	}
 
-	public VendedorDTO(Long idVendedor, String nome, String email, String senha, String perfil, Double comissao) {
+	public VendedorResponse(Integer idVendedor, String nome, String email, String senha, String perfil,
+			Double comissao) {
 		super();
 		this.idVendedor = idVendedor;
 		this.nome = nome;
@@ -23,11 +24,17 @@ public class VendedorDTO {
 		this.comissao = comissao;
 	}
 
-	public Long getIdVendedor() {
+	@Override
+	public String toString() {
+		return "VendedorResponse [idVendedor=" + idVendedor + ", nome=" + nome + ", email=" + email + ", senha=" + senha
+				+ ", perfil=" + perfil + ", comissao=" + comissao + "]";
+	}
+
+	public Integer getIdVendedor() {
 		return idVendedor;
 	}
 
-	public void setIdVendedor(Long idVendedor) {
+	public void setIdVendedor(Integer idVendedor) {
 		this.idVendedor = idVendedor;
 	}
 
