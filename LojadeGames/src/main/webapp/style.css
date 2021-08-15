@@ -1,0 +1,37 @@
+  
+html, body{
+	background-image: url("https://images4.alphacoders.com/569/thumb-1920-569896.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+}
+
+.card{
+	margin-top: auto;
+	margin-bottom: auto;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.jumbotron {
+	text-align: center;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.login_btn{
+	
+	color: black;
+	background-color: #D8FFD8;
+	width: 100px;
+}
+.login_btn:hover {
+	color: black;
+	background-color: white;
+}
+
+#jubo {
+	font-style: italic;
+		font-weight: bold 4px;
+		font-size: 30px;
+		font-family: arial, sans-serif;
+		
+}
