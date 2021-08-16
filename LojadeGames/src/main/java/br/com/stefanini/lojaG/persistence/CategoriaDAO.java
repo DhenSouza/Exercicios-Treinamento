@@ -1,5 +1,6 @@
 package br.com.stefanini.lojaG.persistence;
 
+import br.com.stefanini.lojaG.dto.services.CategoriaService;
 import br.com.stefanini.lojaG.entities.Categoria;
 import br.com.stefanini.lojaG.entities.Produto;
 
@@ -13,10 +14,12 @@ public class CategoriaDAO extends DAO implements ICategoriaDAO {
 		rs = stmt.executeQuery();
 
 		Categoria categoria = null;
-
+		CategoriaService cat = new CategoriaService();
+		
 		if (rs.next()) {
 			categoria = new Categoria();
-
+			cat.validacaoCategoria(categoria);
+			
 			categoria.setIdCategoria(rs.getInt(1));
 			categoria.setNomeCategoria(rs.getString(2));
 			categoria.setPlataforma(rs.getString(3));

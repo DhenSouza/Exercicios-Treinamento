@@ -1,8 +1,6 @@
 package br.com.stefanini.lojaG.dto.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.stefanini.lojaG.entities.Categoria;
-import br.com.stefanini.lojaG.entities.Produto;
 import br.com.stefanini.lojaG.persistence.CategoriaDAO;
 
 @WebServlet("/CategoriaController")

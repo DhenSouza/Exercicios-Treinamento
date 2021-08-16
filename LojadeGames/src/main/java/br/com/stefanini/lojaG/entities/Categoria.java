@@ -2,6 +2,8 @@ package br.com.stefanini.lojaG.entities;
 
 import java.util.List;
 
+import br.com.stefanini.lojaG.dto.services.CategoriaService;
+
 public class Categoria {
 
 	private Integer idCategoria;
@@ -11,6 +13,8 @@ public class Categoria {
 	private String plataforma;
 
 	private List<Produto> produtos;
+	
+
 
 	public Categoria() {
 		super();
