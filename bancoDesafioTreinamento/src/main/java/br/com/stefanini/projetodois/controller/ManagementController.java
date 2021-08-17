@@ -10,9 +10,6 @@ import br.com.stefanini.projetodois.model.AccountManagement;
 public class ManagementController {
 
 	private AccountHolder holder;
-	private AccountManagement management;
-	private AccountRequest request;
-	private AccountResponse respose;
 
 	public ManagementController() {
 

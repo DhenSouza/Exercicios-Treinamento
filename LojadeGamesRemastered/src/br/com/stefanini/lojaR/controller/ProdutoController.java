@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.stefanini.lojaR.dto.request.ProdutoRequest;
+import br.com.stefanini.lojaR.dto.response.ProdutoResponse;
 import br.com.stefanini.lojaR.entities.Produto;
 import br.com.stefanini.lojaR.persistence.IProdutoDAO;
 import br.com.stefanini.lojaR.persistence.ProdutoDAO;
@@ -25,7 +26,7 @@ public class ProdutoController extends HttpServlet {
 	 */
 	public ProdutoController() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,7 +35,8 @@ public class ProdutoController extends HttpServlet {
 			String cmd = "";
 
 			cmd = request.getParameter("cmd");
-
+			
+			
 			int id = 0;
 
 			id = Integer.parseInt(request.getParameter("idProduto"));
@@ -79,6 +81,9 @@ public class ProdutoController extends HttpServlet {
 			case "deletar":
 				delete(request, response);
 				break;
+			case "procurar":
+				findById(request, response);
+				break;
 
 			}
 		} catch (Exception ex) {
@@ -121,7 +126,7 @@ public class ProdutoController extends HttpServlet {
 
 			new ProdutoDAO().update(produto);
 
-			 request.setAttribute("sucesso", "dados atualizados");
+			request.setAttribute("sucesso", "dados atualizados");
 			request.getRequestDispatcher("telaCrudProduto.jsp").forward(request, response);
 
 		} catch (Exception ex) {
@@ -136,22 +141,17 @@ public class ProdutoController extends HttpServlet {
 	protected void findById(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			ProdutoRequest requestObj = new ProdutoRequest();
+			// ProdutoRequest prodRequest = new ProdutoRequest();
 
-			requestObj.ofProduto(new Integer(request.getParameter("idProduto")), request.getParameter("nome"),request.getParameter("descricao"),
-					new Double(	request.getParameter("preco")));
-			Produto produto = new Produto();
-
-			produto.setIdProduto(new Integer(request.getParameter("idProduto")));
-//			 produto.setNome(request.getParameter("nome"));
-//			 produto.setDescricao(request.getParameter("descricao"));
-//			 produto.setPreco(new Double (request.getParameter("preco")));
+			Produto prod = new Produto();
 
 			Integer id = new Integer(request.getParameter("idProduto"));
+			prod.setIdProduto(id);
 
-			new ProdutoDAO().findByIdProduto(id);
+			new ProdutoDAO().findByIdProduto(prod.getIdProduto());
 
-			request.setAttribute("msg", requestObj);
+			request.setAttribute("msg", prod);
+
 			request.getRequestDispatcher("saidaID.jsp").forward(request, response);
 
 		} catch (Exception ex) {
@@ -162,7 +162,7 @@ public class ProdutoController extends HttpServlet {
 
 		}
 	}
-	
+
 	protected void delete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
@@ -170,11 +170,10 @@ public class ProdutoController extends HttpServlet {
 
 			int id = new Integer(request.getParameter("idProduto"));
 			produto.setIdProduto(id);
-		
 
 			new ProdutoDAO().delete(produto.getIdProduto());
 
-			 request.setAttribute("sucesso", "dado deletado");
+			request.setAttribute("sucesso", "dado deletado");
 			request.getRequestDispatcher("sucessoTela.jsp").forward(request, response);
 
 		} catch (Exception ex) {

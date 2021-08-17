@@ -16,7 +16,6 @@ public class Prova {
 	}
 
 	public Prova() {
-		super();
 	}
 
 	public Prova(Integer idProva, String descricao, List<String> questoes) {

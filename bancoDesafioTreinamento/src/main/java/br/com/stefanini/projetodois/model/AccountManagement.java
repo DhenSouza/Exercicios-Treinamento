@@ -18,6 +18,14 @@ public class AccountManagement {
 		this.valor = valor;
 	}
 
+	public AccountManagement(Integer idManagement, String operacao, Double valor, AccountHolder accountHolder) {
+		super();
+		this.idManagement = idManagement;
+		this.operacao = operacao;
+		this.valor = valor;
+		this.accountHolder = accountHolder;
+	}
+
 	public Integer getIdManagement() {
 		return idManagement;
 	}

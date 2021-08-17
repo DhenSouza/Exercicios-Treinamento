@@ -10,8 +10,7 @@ public class ProdutoRequest {
 		this.produto = new Produto();
 	}
 
-	public void ofProduto(Integer idProduto, String nome, String descricao, Double preco) {
-		produto.setIdProduto(idProduto);
+	public void ofProduto( String nome, String descricao, Double preco) {
 		produto.setNome(nome);
 		produto.setDescricao(descricao);
 		produto.setPreco(preco);

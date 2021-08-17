@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+
 	<!DOCTYPE html>
 	<html>
 
@@ -100,6 +101,23 @@
 						  <div class="mt-2 justify-content-end">
 						   <input type="hidden"  name="flag" value="atualizar"/>
 						  <input type="submit" value="atualizar" class="btn float-right login_btn" >
+						  </div>
+						</div>
+					  </form>		
+				</div>
+			</div>
+			
+				<div class="card mt-5" >
+				<div class="card-body">
+					<form method="post" action="ProdutoController">
+						<div class="row">
+						<div class="col">
+							<input type="number" name="idProduto" class="form-control" placeholder="Informe id do produto que deseja visualizar">
+						  </div>
+						  
+						  <div class="mt-2 justify-content-end">
+						   <input type="hidden"  name="flag" value="procurar"/>
+						  <input type="submit" value="procurar" class="btn float-right login_btn" >
 						  </div>
 						</div>
 					  </form>		

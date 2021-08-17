@@ -53,7 +53,6 @@ public class AccountHolderDAO extends DAO {
 			stmt1.close();
 
 			connect.setAutoCommit(true);
-			connect.commit();
 
 		} catch (Exception ex) {
 			connect.rollback();
@@ -78,40 +77,6 @@ public class AccountHolderDAO extends DAO {
 		}
 		close();
 		return list;
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void main(String[] args) throws Exception {
-		AccountHolderDAO dao = new AccountHolderDAO();
-
-		AccountHolder user = new AccountHolder(null, "denilson", "denilson@gmail.com", 0.,
-				UUID.randomUUID().toString());
-
-		AccountManagement h1 = new AccountManagement(null, "deposito", 5000.);
-
-		ManagementController controll = new ManagementController(user);
-
-		List seila = new ArrayList<AccountManagement>();
-
-		seila.add(h1);
-
-		user.setManagements(seila);
-
-		controll.adicionarMovimentacao(h1);
-
-		try {
-			int chave = dao.createAccountHolderManagement(user);
-
-//			for (AccountHolder u : dao.findAll()) {
-//				System.out.println(u);
-//			}
-
-			System.out.println("Criado com sucesso");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
 	}
 
 }

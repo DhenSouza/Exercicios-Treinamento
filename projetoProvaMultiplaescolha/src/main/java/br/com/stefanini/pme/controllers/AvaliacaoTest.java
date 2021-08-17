@@ -13,9 +13,9 @@ public class AvaliacaoTest {
 
 		List<AlunoService> alunos = new ArrayList<>();
 
-		for (int i = 0; i < 5; i++) {
-		//	Aluno aluno = new Aluno("Denilson");
+		for (int i = 0; i < 10; i++) {
 			AlunoService aluno = new AlunoService();
+			
 
 			aluno.getAluno().setIdAluno(i);
 			aluno.responderQuestoesDaProva();
@@ -24,13 +24,14 @@ public class AvaliacaoTest {
 		}
 
 		GabaritoService gabaritoService = new GabaritoService();
-		gabaritoService.adicionarRespostas(Collections.nCopies(1, "A"));
+		
+		gabaritoService.adicionarRespostas(Collections.nCopies(8, "A"));
 
 		for (AlunoService aluno : alunos) {
 			System.out.println();
 			aluno.corrigirProva(gabaritoService);
 
-			System.out.println("Id do Aluno" + aluno.getAluno().getIdAluno() + " Nome do Aluno: " + aluno.getAluno().getNome());
+			System.out.println("Id do Aluno " + aluno.getAluno().getIdAluno());
 		}
 
 	}
