@@ -76,8 +76,7 @@ public class ProdutoDAO extends DAO implements IProdutoDAO {
 	public void update(Produto produto) throws Exception {
 		open();
 
-		stmt = connect
-				.prepareStatement("update produto set nome=?, descricao=?, preco=? where idProduto=? ");
+		stmt = connect.prepareStatement("update produto set nome=?, descricao=?, preco=? where idProduto=? ");
 		stmt.setString(1, produto.getNome());
 		stmt.setString(2, produto.getDescricao());
 		stmt.setDouble(3, produto.getPreco());
@@ -91,29 +90,13 @@ public class ProdutoDAO extends DAO implements IProdutoDAO {
 
 	@Override
 	public void delete(Integer id) throws Exception {
-		// TODO Auto-generated method stub
+		open();
+		stmt = connect.prepareStatement("delete from produto where idProduto=? ");
+		stmt.setInt(1, id);
+		stmt.execute();
+		stmt.close();
+		close();
 
-	}
-
-	public static void main(String[] args) {
-		ProdutoDAO dao = new ProdutoDAO();
-
-		try {
-			//Produto produto = new Produto(null, "Far cry 3", "melhor jogo do ano 2010", 100.);
-
-			Produto dados = new ProdutoDAO().findByIdProduto(3);
-			dados.setNome("The evil within");
-			dados.setDescricao("Jogo legalzinho");
-			dados.setPreco(400.);
-			new ProdutoDAO().update(dados);
-
-			for (Produto i : dao.findAll()) {
-				System.out.println(i);
-			}
-		} catch (Exception ex) {
-
-			ex.printStackTrace();
-		}
 	}
 
 }
