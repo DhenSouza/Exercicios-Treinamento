@@ -10,7 +10,7 @@ public class Prova {
 	private String descricao;
 
 	private List<String> questoes;
-	
+
 	{
 		questoes = new ArrayList<String>();
 	}
@@ -28,8 +28,6 @@ public class Prova {
 	public void add(String questao) {
 		questoes.add(questao);
 	}
-
-
 
 	public Integer getIdProva() {
 		return idProva;

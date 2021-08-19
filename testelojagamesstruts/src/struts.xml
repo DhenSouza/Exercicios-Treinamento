@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="projetolojagamesstruts" extends="struts-default">
+
+		<action name="produto.cadastrar"
+			class="br.com.stefanini.testelojagamesstruts.controller.ProdutoAction"
+			method="cadastrar">
+			<result name="success">/sistema.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+
+		<action name="produto.listar"
+			class="br.com.stefanini.testelojagamesstruts.controller.ProdutoAction"
+			method="listar">
+			<result name="success">/listar.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+
+		<action name="produto.alterar"
+			class="br.com.stefanini.testelojagamesstruts.controller.ProdutoAction"
+			method="alterar">
+			<result name="success">/alterar.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		
+		<action name="produto.excluir.find"
+			class="br.com.stefanini.testelojagamesstruts.controller.ProdutoAction"
+			method="exluirFind">
+			<result name="success">/excluir.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+	</package>
+</struts>

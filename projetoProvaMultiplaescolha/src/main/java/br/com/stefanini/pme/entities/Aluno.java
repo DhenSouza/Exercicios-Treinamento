@@ -1,19 +1,11 @@
 package br.com.stefanini.pme.entities;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import br.com.stefanini.pme.entities.services.GabaritoService;
-
 public class Aluno {
 
 	private Integer idAluno;
 	private String nome;
 
 	private Prova prova;
-
-
 
 	public Aluno() {
 		super();
@@ -59,6 +51,5 @@ public class Aluno {
 	public void setProva(Prova prova) {
 		this.prova = prova;
 	}
-
 
 }
