@@ -1,5 +1,8 @@
 package br.com.stefanini.testelojagamesstruts.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -10,8 +13,9 @@ public class Produto {
 	private String descricao;
 	private Double preco;
 
+	private List<Categoria> categorias;
+
 	public Produto() {
-		super();
 	}
 
 	public Produto(Integer idProduto, String nome, String descricao, Double preco) {
@@ -52,6 +56,21 @@ public class Produto {
 
 	public void setPreco(Double preco) {
 		this.preco = preco;
+	}
+
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
+	}
+
+	public void addCategorias(Categoria categoria) {
+		if (this.categorias == null) {
+			this.categorias = new ArrayList<Categoria>();
+		}
+		categorias.add(categoria);
 	}
 
 	@Override

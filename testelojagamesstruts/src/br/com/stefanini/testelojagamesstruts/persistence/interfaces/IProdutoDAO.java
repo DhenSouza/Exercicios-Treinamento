@@ -1,4 +1,4 @@
-package br.com.stefanini.testelojagamesstruts.persistence;
+package br.com.stefanini.testelojagamesstruts.persistence.interfaces;
 
 import java.util.List;
 

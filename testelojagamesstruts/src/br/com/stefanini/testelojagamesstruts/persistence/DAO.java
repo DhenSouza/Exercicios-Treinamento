@@ -9,6 +9,7 @@ public class DAO implements IDAO {
 
 	Connection connect;
 	PreparedStatement stmt;
+	PreparedStatement stmtCat;
 	ResultSet rs;
 
 	@Override

@@ -12,6 +12,7 @@ import br.com.stefanini.loja.service.ProdutoService;
 
 public class MockController {
 
+
 	private List<ItemProduto> items;
 
 	{
@@ -25,7 +26,6 @@ public class MockController {
 	public void setItems(List<ItemProduto> items) {
 		this.items = items;
 	}
-
 	public void mock() throws Exception {
 		
 		Produto produto1 = new Produto(1, "ab300", "Caneta", 50, 2);

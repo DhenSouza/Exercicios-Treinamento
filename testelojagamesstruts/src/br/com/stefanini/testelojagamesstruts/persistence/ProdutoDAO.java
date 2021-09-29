@@ -1,9 +1,12 @@
 package br.com.stefanini.testelojagamesstruts.persistence;
 
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.stefanini.testelojagamesstruts.dto.RequestProdutoCategoria;
 import br.com.stefanini.testelojagamesstruts.models.Produto;
+import br.com.stefanini.testelojagamesstruts.persistence.interfaces.IProdutoDAO;
 import br.com.stefanini.testelojagamesstruts.service.ProdutoService;
 
 public class ProdutoDAO extends DAO implements IProdutoDAO {
@@ -51,6 +54,49 @@ public class ProdutoDAO extends DAO implements IProdutoDAO {
 		stmt.close();
 		close();
 
+	}
+
+	public Integer gravarProdutoCat(RequestProdutoCategoria requestProdCat) throws Exception {
+		open();
+
+		Integer id = 0;
+
+		connect.setAutoCommit(false);
+
+		try {
+
+			stmt = connect.prepareStatement(
+					"insert into produto (idProduto, nome, descricao, preco) values (null, ?, ?, ?)",
+					PreparedStatement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, requestProdCat.getProduto().getNome());
+			stmt.setString(2, requestProdCat.getProduto().getDescricao());
+			stmt.setDouble(3, requestProdCat.getProduto().getPreco());
+
+			stmt.executeUpdate();
+			rs = stmt.getGeneratedKeys();
+			rs.next();
+
+			id = rs.getInt(1);
+			stmt.close();
+
+			// ---------------------------------------------------------------------- //
+
+			stmtCat = connect.prepareStatement(
+					"insert into categoria (idCategoria, descricaoCategoria, produto_id) values (null, ?, ?)");
+			stmtCat.setString(1, requestProdCat.getProduto().getCategorias().get(1).getDescricaoCategoria());
+			stmtCat.setInt(2, id);
+			stmtCat.execute();
+			stmtCat.close();
+			
+			connect.setAutoCommit(true);
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			connect.rollback();
+		} finally {
+			close();
+		}
+		return id;
 	}
 
 	@Override
